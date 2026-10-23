@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210.0mm" height="297.0mm" viewBox="0 0 210.0 297.0">
+<style>.cut{fill:none;stroke:#000;stroke-width:.35}text{font:3.2px sans-serif;fill:#444}</style>
+<text x="15.0" y="10.0">Pyramid faces x4 · base 10 mm · top 70 mm · slant 42.4 mm · rise 30.0 mm · print at 100%</text>
+<polygon class="cut" points="45.00,57.43 55.00,57.43 85.00,15.00 15.00,15.00"/>
+<text x="47.0" y="36.2">face 1</text>
+<polygon class="cut" points="127.00,57.43 137.00,57.43 167.00,15.00 97.00,15.00"/>
+<text x="129.0" y="36.2">face 2</text>
+<polygon class="cut" points="45.00,111.85 55.00,111.85 85.00,69.43 15.00,69.43"/>
+<text x="47.0" y="90.6">face 3</text>
+<polygon class="cut" points="127.00,111.85 137.00,111.85 167.00,69.43 97.00,69.43"/>
+<text x="129.0" y="90.6">face 4</text>
+<line class="cut" x1="15.0" y1="282.0" x2="65.0" y2="282.0"/>
+<line class="cut" x1="15.0" y1="280.0" x2="15.0" y2="284.0"/>
+<line class="cut" x1="65.0" y1="280.0" x2="65.0" y2="284.0"/>
+<text x="29.0" y="279.0">50 mm scale bar</text>
+</svg>

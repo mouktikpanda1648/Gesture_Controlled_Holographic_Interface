@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-mode="control">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#02060a">
+  <title>Holo-Link · Gesture Interface</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 29 27H3z' fill='none' stroke='%234de8ff' stroke-width='2.5' stroke-linejoin='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="app">
+    <main class="stage" aria-label="Holographic interface display">
+      <canvas id="stage" aria-hidden="true"></canvas>
+      <p class="sr-only" id="live" aria-live="polite"></p>
+    </main>
+
+    <aside class="hud" aria-label="Operator console">
+      <header class="hud__head">
+        <svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4 28 27H4z"/><path d="M16 13 22 25H10z"/></svg>
+        <div>
+          <h1>Holo-Link</h1>
+          <p class="muted">Gesture interface · <span id="version">v—</span></p>
+        </div>
+        <span class="badge" id="sim-badge" hidden>SIMULATION</span>
+      </header>
+
+      <section class="card" aria-labelledby="h-status">
+        <h2 id="h-status">System</h2>
+        <ul class="status">
+          <li><span class="dot" id="dot-backend"></span><span>Backend</span><b id="val-backend">—</b></li>
+          <li><span class="dot" id="dot-camera"></span><span>Camera</span><b id="val-camera">—</b></li>
+          <li><span class="dot" id="dot-link"></span><span>ESP32</span><b id="val-link">—</b></li>
+          <li><span class="dot" id="dot-led"></span><span>LED</span><b id="val-led">—</b></li>
+        </ul>
+      </section>
+
+      <section class="card" aria-labelledby="h-gesture">
+        <h2 id="h-gesture">Gesture</h2>
+        <div class="gesture">
+          <strong id="gesture-name">NO HAND</strong>
+          <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="gesture-bar"><i></i></div>
+        </div>
+        <canvas id="hand" width="320" height="200" aria-label="Detected hand skeleton"></canvas>
+        <ol class="guide" id="guide">
+          <li data-g="POINT"><kbd>1</kbd><span>Point</span><em>select LIGHT</em></li>
+          <li data-g="THUMBS_UP"><kbd>2</kbd><span>Thumbs up</span><em>LED on</em></li>
+          <li data-g="OPEN_PALM"><kbd>3</kbd><span>Open palm</span><em>LED off</em></li>
+        </ol>
+      </section>
+
+      <section class="card" aria-labelledby="h-manual">
+        <h2 id="h-manual">Manual override</h2>
+        <div class="row">
+          <button type="button" class="btn" id="btn-on">LED ON</button>
+          <button type="button" class="btn btn--ghost" id="btn-off">LED OFF</button>
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="h-display">
+        <h2 id="h-display">Display</h2>
+        <div class="row">
+          <button type="button" class="btn" id="btn-holo" aria-pressed="false">Hologram <kbd>H</kbd></button>
+          <button type="button" class="btn btn--ghost" id="btn-full">Fullscreen <kbd>F</kbd></button>
+        </div>
+        <label class="field">Image size <output id="out-scale">34%</output>
+          <input type="range" id="in-scale" min="15" max="48" step="1" value="34">
+        </label>
+        <label class="field">Distance from centre <output id="out-gap">4%</output>
+          <input type="range" id="in-gap" min="0" max="20" step="1" value="4">
+        </label>
+        <label class="check"><input type="checkbox" id="in-guide"> Show alignment guide <kbd>G</kbd></label>
+      </section>
+
+      <section class="card card--log" aria-labelledby="h-log">
+        <h2 id="h-log">Activity</h2>
+        <ol class="log" id="log" aria-live="off"></ol>
+      </section>
+    </aside>
+  </div>
+</body>
+</html>
